@@ -1,0 +1,5 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M25 25 L75 25 L75 75 L25 75 Z" fill="none" stroke="#3b82f6" stroke-width="6"/>
+  <path d="M25 25 L40 10 L90 10 L75 25" fill="none" stroke="#3b82f6" stroke-width="6"/>
+  <path d="M75 25 L90 10 L90 60 L75 75" fill="none" stroke="#3b82f6" stroke-width="6"/>
+</svg>

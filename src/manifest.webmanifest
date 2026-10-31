@@ -1,0 +1,10 @@
+{
+  "name": "3DMeshTools",
+  "short_name": "3DMeshTools",
+  "description": "Tools for working with 3D meshes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#1f2937",
+  "background_color": "#ffffff"
+}

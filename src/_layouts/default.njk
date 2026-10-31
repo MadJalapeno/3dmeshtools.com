@@ -1,0 +1,41 @@
+{% include "head.njk" %}
+
+<body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:bg-primary focus:text-white focus:p-3">Skip to content</a>
+
+{% include "navigation.njk" %}
+
+<main id="main" class="flex-1 flex flex-col">
+{{ content | safe }}
+</main>
+
+{% include "footer.njk" %}
+
+<dialog id="shot-modal" class="m-auto max-w-[95vw] max-h-[95vh] bg-transparent backdrop:bg-black/80 p-0 overflow-visible">
+  <button type="button" id="shot-close" aria-label="Close" class="btn btn-circle btn-sm absolute -top-3 -right-3 z-10">✕</button>
+  <img id="shot-img" alt="" class="max-w-[95vw] max-h-[85vh] w-auto h-auto rounded-lg shadow-2xl">
+  <p id="shot-caption" class="text-center text-sm text-gray-200 mt-2"></p>
+</dialog>
+<script>
+  (function () {
+    var modal = document.getElementById('shot-modal');
+    if (!modal) return;
+    var img = document.getElementById('shot-img');
+    var cap = document.getElementById('shot-caption');
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-modal]');
+      if (a) {
+        e.preventDefault();
+        img.src = a.href;
+        img.alt = a.querySelector('img').alt;
+        cap.textContent = a.dataset.caption || '';
+        modal.showModal();
+      } else if (e.target === modal || e.target.id === 'shot-close') {
+        modal.close();
+      }
+    });
+  })();
+</script>
+</body>
+</html>

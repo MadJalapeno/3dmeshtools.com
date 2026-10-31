@@ -1,0 +1,36 @@
+{%- set pageDescription = description or site.description -%}
+{%- set pageUrl = site.url + (page.url if page.url != '/' else '/') -%}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ pageDescription }}">
+    <meta name="author" content="{{ site.name }}">
+{% if noindex %}
+    <meta name="robots" content="noindex, nofollow">
+{% else %}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{% endif %}
+    <link rel="canonical" href="{{ pageUrl }}">
+
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:image" content="{{ site.ogImage }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ pageDescription }}">
+    <meta name="twitter:image" content="{{ site.ogImage }}">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#1f2937">
+
+    <link rel="stylesheet" href="/assets/css/tailwind.css?v={% version %}" />
+</head>
