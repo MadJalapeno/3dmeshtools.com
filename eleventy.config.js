@@ -6,6 +6,7 @@ const now = new Date();
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/images/");
+  eleventyConfig.ignores.add("src/demo*_report.html"); // served via passthrough, not as a template
   eleventyConfig.addPassthroughCopy({ "src/demo002_remote_aligned_deviation_report.html": "demo-report/index.html" });
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/manifest.webmanifest");
