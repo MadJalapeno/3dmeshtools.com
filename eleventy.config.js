@@ -23,7 +23,7 @@ export default function (eleventyConfig) {
 
   // Screenshot thumbnail that opens the full-size image in the modal (see default.njk).
   // Sources live in ./screenshots; output is resized WebP in _site/assets/images/screenshots.
-  eleventyConfig.addAsyncShortcode("shot", async function (file, alt, caption = "", cls = "") {
+  eleventyConfig.addAsyncShortcode("shot", async function (file, alt, caption = "", cls = "", eager = false) {
     const meta = await Image(`screenshots/${file}`, {
       widths: [640, 1800],
       formats: ["webp"],
@@ -32,7 +32,7 @@ export default function (eleventyConfig) {
     });
     const [thumb, full] = meta.webp;
     const figcaption = caption ? `<figcaption class="text-sm opacity-70 mt-2 px-1">${caption}</figcaption>` : "";
-    return `<figure class="not-prose m-0 ${cls}"><a href="${full.url}" data-modal data-caption="${caption || alt}" class="block rounded-lg overflow-hidden border border-base-300 shadow-lg hover:border-primary hover:shadow-primary/20 transition"><img src="${thumb.url}" width="${thumb.width}" height="${thumb.height}" alt="${alt}" loading="lazy" class="w-full h-auto"></a>${figcaption}</figure>`;
+    return `<figure class="not-prose m-0 ${cls}"><a href="${full.url}" data-modal data-caption="${caption || alt}" class="block rounded-lg overflow-hidden border border-base-300 shadow-lg hover:border-primary hover:shadow-primary/20 transition"><img src="${thumb.url}" width="${thumb.width}" height="${thumb.height}" alt="${alt}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} class="w-full h-auto"></a>${figcaption}</figure>`;
   });
 
   eleventyConfig.addShortcode("version", () => String(now.getTime()));

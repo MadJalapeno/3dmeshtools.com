@@ -1,0 +1,46 @@
+{%- set publisher = { "@id": "https://jalapeno.design/#organization" } -%}
+{%- set tools = {
+  "@type": "SoftwareApplication",
+  "@id": site.url + "/3dmeshtools/#software",
+  "name": "3D Mesh Tools",
+  "url": site.url + "/3dmeshtools/",
+  "description": "Free desktop tool for checking, repairing, levelling, flattening, scaling, re-centring and shrinking STL meshes and 3D scans.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "softwareVersion": "2.2.0",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "downloadUrl": "https://github.com/madjalapeno/3dmeshtools",
+  "author": publisher,
+  "publisher": publisher
+} -%}
+{%- set compare = {
+  "@type": "SoftwareApplication",
+  "@id": site.url + "/3dmeshcompare/#software",
+  "name": "3D Mesh Compare",
+  "url": site.url + "/3dmeshcompare/",
+  "description": "Free desktop tool that compares a 3D scan with a CAD export or another mesh and colours every point by its deviation, with statistics and an HTML report.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "softwareVersion": "2.2.0",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "downloadUrl": "https://github.com/madjalapeno/3dmeshtools",
+  "author": publisher,
+  "publisher": publisher
+} -%}
+{%- if page.url == '/' -%}
+  {%- set graph = [
+    { "@type": "WebSite", "@id": site.url + "/#website", "url": site.url + "/", "name": site.name, "description": site.description, "inLanguage": "en-US", "publisher": publisher },
+    tools, compare
+  ] -%}
+{%- elif page.url == '/3dmeshtools/' -%}
+  {%- set graph = [tools] -%}
+{%- elif page.url == '/3dmeshcompare/' -%}
+  {%- set graph = [compare] -%}
+{%- else -%}
+  {%- set graph = [] -%}
+{%- endif -%}
+{%- if graph.length %}
+<script type="application/ld+json">
+{{ { "@context": "https://schema.org", "@graph": graph } | dump | safe }}
+</script>
+{%- endif %}

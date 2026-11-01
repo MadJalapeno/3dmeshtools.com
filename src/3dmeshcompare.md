@@ -1,8 +1,8 @@
 ---
 layout: article.njk
-title: "3D Mesh Compare | Compare a 3D Scan with CAD - Free Deviation Map Tool"
+title: "3D Mesh Compare | Free 3D Scan vs CAD Deviation Map"
 breadcrumb: "3D Mesh Compare"
-description: Free desktop tool that lines a 3D scan up with its CAD model (exported as STL) or another mesh and colours every point by deviation, with tolerance statistics and a branded HTML report.
+description: Free desktop tool that compares a 3D scan with its CAD model or another mesh, colouring every point by deviation with tolerance statistics and an HTML report.
 permalink: /3dmeshcompare/
 tags: indexable
 ---
