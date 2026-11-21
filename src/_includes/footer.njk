@@ -1,10 +1,63 @@
-    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
-        <aside>
-            <p class="font-bold text-lg">{{ site.name }}</p>
-            <p>{{ site.description }}</p>
-        </aside>
-        <nav>
-            <p>&copy; {% year %} {{ site.name }}. All rights reserved.</p>
-            <p>A <a href="https://jalapeno.design">Jalapeno Design</a> project</p>
-        </nav>
+    <!-- Footer -->
+    <footer class="border-t border-base-content/10 bg-base-200">
+        <div class="max-w-6xl mx-auto px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+                <a href="/" class="inline-flex items-center gap-2 font-display text-lg font-bold tracking-tight mb-3" aria-label="{{ site.name }} home">
+                    <svg class="h-7 w-7 text-primary" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M10 46 28 12 54 30 44 54z"/><path d="M28 12 44 54M10 46 54 30"/></svg>
+                    <span>{{ site.name }}</span>
+                </a>
+                <p class="text-sm opacity-80">Two free desktop programs for aligning, repairing and comparing 3D scan data.</p>
+                <p class="text-sm opacity-60 mt-2">Windows, macOS and Linux. Python 3.10 or newer.</p>
+            </div>
+            <nav aria-label="Tools">
+                <h2 class="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-primary">Tools</h2>
+                <ul class="grid gap-2 text-sm">
+                    <li><a class="link link-hover" href="/3dmeshtools/">3D Mesh Tools</a></li>
+                    <li><a class="link link-hover" href="/3dmeshcompare/">3D Mesh Compare</a></li>
+                    <li><a class="link link-hover" href="/demo-report/">Demo report</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Learn">
+                <h2 class="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-primary">Learn</h2>
+                <ul class="grid gap-2 text-sm">
+                    <li><a class="link link-hover" href="/installation/">Installation guide</a></li>
+                    <li><a class="link link-hover" href="/scan-to-solidworks/">Scan to SolidWorks</a></li>
+                    <li><a class="link link-hover" href="https://github.com/madjalapeno/3dmeshtools">Source on GitHub</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2 class="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-primary">Get it</h2>
+                <p class="text-sm opacity-80 mb-4">Both programs are in one free download. No licence fees, no subscriptions.</p>
+                <a href="https://github.com/madjalapeno/3dmeshtools/archive/refs/heads/main.zip" class="btn btn-primary btn-sm">Download (zip)</a>
+            </div>
+        </div>
+        <div class="border-t border-base-content/10">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row gap-2 justify-between text-sm opacity-70">
+                <p>&copy; {% year %} {{ site.name }}. All rights reserved.</p>
+                <p class="inline-flex items-center gap-2">A <a class="link link-hover inline-flex items-center gap-1.5" href="https://jalapeno.design"><img src="/assets/images/jalapeno-logo.svg" alt="" width="20" height="20" class="h-5 w-5 object-contain">Jalapeno Design</a> project</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Light/dark toggle
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            var root = document.documentElement;
+            function sync() {
+                var dark = root.getAttribute('data-theme') === 'dark';
+                btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+                btn.querySelector('.theme-icon-sun').style.display = dark ? '' : 'none';
+                btn.querySelector('.theme-icon-moon').style.display = dark ? 'none' : '';
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', dark ? '#0c1812' : '#ffffff');
+            }
+            btn.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+                sync();
+            });
+            sync();
+        })();
+    </script>

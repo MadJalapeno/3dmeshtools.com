@@ -1,6 +1,6 @@
 ---
 layout: article.njk
-title: "3D Mesh Tools | Free STL Repair, Levelling & Scaling Tool"
+title: "3D Mesh Tools | Free STL Repair, Levelling & Scaling"
 breadcrumb: "3D Mesh Tools"
 description: Free desktop tool for checking, repairing, levelling, flattening, scaling, re-centring and shrinking STL meshes and 3D scans.
 permalink: /3dmeshtools/
@@ -12,6 +12,8 @@ tags: indexable
 **3D Mesh Tools** is a free desktop tool for tidying up STL meshes — especially 3D scans, which rarely come out of the scanner clean, watertight or sitting square to anything. Check the mesh for problems, remove scanner debris and fill small holes, then pick a few points on the model (or let it find a flat face for you) to level the part, make a rough scanned face perfectly flat, square it to the X/Y axes, scale it to a known dimension, put the origin where you want it and cut a huge scan down to a manageable file size. A colour map shows exactly how far the surface has moved from the original scan. Then save a clean STL that drops straight into CAD, a slicer or a reverse-engineering workflow.
 
 It comes with **3D Mesh Compare**, which lines a scan up with its CAD model (exported as STL) or another mesh and colours every point by how far it is off — with a tolerance band, statistics, point callouts and an HTML report you can send to a client. [Read about 3D Mesh Compare](/3dmeshcompare/).
+
+Scanning a part so you can rebuild it in CAD? See how to [bring an STL scan into SolidWorks as IGES section curves](/scan-to-solidworks/) using Claude and ScanRuler.
 
 [Download (zip)](https://github.com/madjalapeno/3dmeshtools/archive/refs/heads/main.zip) · [Install guide](/installation/) · [3D Mesh Compare →](/3dmeshcompare/)
 

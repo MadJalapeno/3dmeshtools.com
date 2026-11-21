@@ -27,15 +27,38 @@
   "author": publisher,
   "publisher": publisher
 } -%}
+{%- set crumbs = { "@type": "BreadcrumbList", "@id": pageUrl + "#breadcrumb", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "Home", "item": site.url + "/" },
+  { "@type": "ListItem", "position": 2, "name": (breadcrumb or title), "item": pageUrl }
+] } -%}
+{%- set article = {
+  "@type": "TechArticle",
+  "@id": pageUrl + "#article",
+  "headline": title,
+  "description": description,
+  "url": pageUrl,
+  "mainEntityOfPage": pageUrl,
+  "inLanguage": "en-US",
+  "dateModified": page.date | dateFilter,
+  "image": site.url + "/assets/images/step3-section-lines.png",
+  "about": ["STL", "IGES", "SolidWorks", "3D scanning", "reverse engineering"],
+  "isAccessibleForFree": true,
+  "author": publisher,
+  "publisher": publisher
+} -%}
 {%- if page.url == '/' -%}
   {%- set graph = [
     { "@type": "WebSite", "@id": site.url + "/#website", "url": site.url + "/", "name": site.name, "description": site.description, "inLanguage": "en-US", "publisher": publisher },
     tools, compare
   ] -%}
 {%- elif page.url == '/3dmeshtools/' -%}
-  {%- set graph = [tools] -%}
+  {%- set graph = [tools, crumbs] -%}
 {%- elif page.url == '/3dmeshcompare/' -%}
-  {%- set graph = [compare] -%}
+  {%- set graph = [compare, crumbs] -%}
+{%- elif page.url == '/scan-to-solidworks/' -%}
+  {%- set graph = [article, crumbs] -%}
+{%- elif page.url == '/installation/' -%}
+  {%- set graph = [crumbs] -%}
 {%- else -%}
   {%- set graph = [] -%}
 {%- endif -%}

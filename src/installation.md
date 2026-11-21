@@ -1,10 +1,11 @@
 ---
 layout: article.njk
-title: "Install 3D Mesh Tools & 3D Mesh Compare | Python Setup Guide"
+title: "Install 3D Mesh Tools & Compare | Python Setup Guide"
 breadcrumb: "Installation"
 description: How to install 3D Mesh Tools and 3D Mesh Compare — free STL mesh programs for Windows, macOS and Linux. Install Python, five libraries and download the source.
 permalink: /installation/
 tags: indexable
+ogType: article
 ---
 
 # Installing 3D Mesh Tools and 3D Mesh Compare

@@ -82,6 +82,10 @@ Add `--save-aligned` to save the aligned scan, `--csv deviations.csv` for every 
 **The automatic best fit lines the part up the wrong way round.**
 That can happen with very symmetric parts. Use *Align › Pick 3 point pairs* and choose three spread-out points that tell the orientation apart (a hole, a boss, a chamfered corner).
 
+## Related
+
+Once a scan is aligned, you can turn it into section curves and flat faces for SolidWorks. See [importing an STL scan into SolidWorks as IGES curves](/scan-to-solidworks/).
+
 ## Download
 
 [Download the zip](https://github.com/madjalapeno/3dmeshtools/archive/refs/heads/main.zip) — contains both programs. See the [installation guide](/installation/), or browse the [source on GitHub](https://github.com/madjalapeno/3dmeshtools).
